@@ -1,0 +1,914 @@
+@media (max-width: 1280px) {
+  .reviews__item-box {
+    width: 255px;
+    height: 430px;
+  }
+  .reviews__inner,
+  .reviews__item {
+    width: auto;
+    height: auto;
+  }
+  .reviews__box {
+    width: 255px;
+    height: auto;
+  }
+  .reviews__box::before {
+    width: 75px;
+    left: 20px;
+  }
+  .reviews__item-span::after {
+    width: 75px;
+    right: 14px;
+  }
+  .reviews__item-box::after {
+    width: 220px;
+    left: 13px;
+  }
+  .reviews__item-box {
+    padding: 10px;
+  }
+  .reviews__img {
+    width: 80px;
+    height: 80px;
+  }
+  .reviews__quote {
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 20px;
+  }
+  .author {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+
+  .footer__logo {
+    width: 142px;
+    height: 80px;
+  }
+  .reviews-right::before {
+    height: 430px;
+    left: -45px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-box {
+    padding: 24px 10px 82px 10px;
+  }
+  .menu__list li {
+    margin: 0px 12px;
+  }
+
+  .header-logo {
+    width: 110px;
+    /* height: 60px; */
+  }
+  h1 {
+    font-size: 174px;
+  }
+  h2 {
+    font-size: 135px;
+  }
+
+  .header__phone span {
+    display: none;
+  }
+  .header__btn::before,
+  .header__btn::after {
+    display: none;
+  }
+  .header__button {
+    width: 110px;
+  }
+
+  .header__button::before,
+  .header__button::after {
+    width: 55px;
+  }
+}
+
+@media (max-width: 1140px) {
+  .search__items {
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  .search__item-box {
+    display: block;
+    margin-left: 0;
+  }
+  .sear {
+    display: flex;
+    margin: 23px 0;
+  }
+  .search__item {
+    margin-right: 0px;
+  }
+  .products__title,
+  .book__title {
+    margin-top: 58px;
+  }
+  .luxury__img {
+    width: 300px;
+    height: 490px;
+  }
+
+  .book__list {
+    justify-content: space-around;
+  }
+
+  .book__img {
+    width: 440px;
+  }
+
+  .write__inner {
+    width: 680px;
+    margin: 0 auto;
+  }
+  .write__item-box {
+    width: 680px;
+  }
+  .write__item-box::after {
+    width: 630px;
+  }
+
+  .write__inner::before {
+    width: 275px;
+  }
+  .write__inner::after {
+    width: 275px;
+  }
+
+  .write__item-box {
+    padding: 60px 80px 60px 80px;
+  }
+  .write__title {
+    margin: 0 auto;
+    margin-bottom: 22px;
+  }
+  .write__text {
+    text-align: center;
+  }
+  .write__item-box form {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .write__input {
+    margin-bottom: 35px;
+  }
+  .write__button {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .header-logo {
+    order: 2;
+    z-index: 4;
+  }
+  .header__menu {
+    order: 3;
+    margin-left: 47px;
+  }
+  .header__button {
+    order: 1;
+    z-index: 2;
+  }
+
+  .menu__list {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    padding: 50px 0;
+    background: #e2d3ce;
+    padding-top: 110px;
+    margin-top: -100px;
+    text-align: center;
+    transform: translateY(-700px);
+    transition: all 0.5s;
+  }
+
+  .menu__list.menu__list--active {
+    transform: translateY(0);
+    z-index: 1;
+  }
+
+  .menu__list::before {
+    content: "";
+    position: absolute;
+    background-image: url(../images/burger-bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 263px;
+    height: 509px;
+    top: 54%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .menu__list li {
+    position: relative;
+    margin: 0;
+  }
+  .menu__list a {
+    display: block;
+    padding: 36px 0;
+  }
+
+  .menu-btn {
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    position: relative;
+    background-color: transparent;
+    left: 0;
+    z-index: 4;
+    cursor: pointer;
+  }
+
+  .menu-btn span {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #fff;
+    position: relative;
+    bottom: 0;
+    top: 10px;
+  }
+
+  .menu-btn span::before,
+  .menu-btn span::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    background-color: #fff;
+    left: 0;
+  }
+  .menu-btn span::before {
+    width: 46px;
+    top: -10px;
+    right: 0;
+    left: auto;
+  }
+  .menu-btn span::after {
+    top: 10px;
+  }
+  /* .header {
+    height: 995px;
+  } */
+  h1 {
+    font-size: 124px;
+    line-height: 84px;
+    width: 100%;
+  }
+  h2 {
+    font-size: 110px;
+    bottom: 422px;
+  }
+
+  .top__img {
+    object-fit: cover;
+  }
+  .top__img-bottom {
+    height: 474px;
+    object-fit: cover;
+  }
+
+  .romb-right {
+    margin-right: 42px;
+  }
+
+  .romb-topr {
+    margin-right: 90px;
+  }
+  .products__inner-btn {
+    display: block;
+  }
+  .prod-btn {
+    width: 100%;
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .luxury__img {
+    width: 200px;
+    height: 435px;
+    padding: 5px;
+  }
+  .luxury__text {
+    padding-top: 30px;
+  }
+  .book__img {
+    width: 300px;
+  }
+
+  .book__box-btn span {
+    font-size: 36px;
+  }
+  .book__title {
+    margin-top: 0;
+    margin-bottom: 130px;
+  }
+  .trips__item img {
+    position: absolute;
+    right: 0;
+    top: -125px;
+  }
+
+  .contacts__inner {
+    width: 655px;
+    padding: 83px 10px 110px;
+  }
+  .contacts__inner::before {
+    width: 680px;
+  }
+}
+
+@media (max-width: 890px) {
+  .footer__items {
+    margin-right: 0;
+  }
+  .footer__menu li:nth-child(3) {
+    order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 46px;
+  }
+  .footer__menu ul {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 747px) {
+  .itineraries {
+    justify-content: space-between;
+  }
+  .itineraries__item {
+    margin-right: 0;
+  }
+  .itineraries__box {
+    margin-left: 0;
+  }
+
+  .write__inner,
+  .write__item-box {
+    width: 410px;
+  }
+
+  .write__item-box::after {
+    width: 360px;
+  }
+
+  .write__inner::before,
+  .write__inner::after {
+    width: 160px;
+  }
+  .write__item-box {
+    padding: 60px 15px 60px 15px;
+  }
+  .write__input {
+    width: 380px;
+  }
+  .plan__box {
+    width: 410px;
+  }
+  .plan__box-title {
+    padding: 15px 30px;
+  }
+  .plan__item {
+    width: 395px;
+    padding-left: 110px;
+  }
+  .plan__item::before {
+    left: 0;
+    width: 90px;
+  }
+  .plan__item::after {
+    left: 44.5px;
+    height: 114px;
+    bottom: -26px;
+  }
+  .plan__subtitle {
+    font-size: 32px;
+  }
+  .contacts__inner {
+    width: 385px;
+    padding: 83px 10px 110px;
+  }
+  .contacts__inner::before {
+    width: 410px;
+  }
+  .contacts__boxic {
+    padding-top: 645px;
+  }
+  .footer {
+    padding-top: 300px;
+  }
+}
+
+@media (max-width: 660px) {
+  .header {
+    /* height: 760px; */
+    height: 870px;
+  }
+
+  .top__img {
+    /* height: 395px; */
+    height: 510px;
+  }
+
+  .top__img-bottom {
+    height: 445px;
+  }
+
+  .top__text {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 88px;
+    line-height: 58px;
+  }
+  h2 {
+    font-size: 70px;
+    bottom: 410px;
+  }
+
+  .romb {
+    width: 138px;
+    height: 72px;
+  }
+
+  .romb::before {
+    width: 64px;
+    height: 124px;
+    top: -28px;
+    right: 39px;
+  }
+
+  .romb::after {
+    width: 64px;
+    height: 124px;
+    bottom: -26px;
+    left: 38px;
+  }
+  .luxury {
+    padding-top: 500px;
+  }
+
+  .luxury__button {
+    margin-bottom: 280px;
+  }
+
+  .luxury__inner {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .luxury__item:nth-child(3) {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .book__title {
+    margin-bottom: 130px;
+    margin-top: 0px;
+  }
+  .book__img {
+    width: 296px;
+  }
+
+  .book__box-btn span {
+    font-size: 34px;
+  }
+  .itineraries__title {
+    width: 235px;
+  }
+  .footer__menu li {
+    margin: 0 50px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  .search__item {
+    width: 100%;
+  }
+  .search__item-box {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .products__title,
+  .trips__title {
+    font-size: 50px;
+    line-height: 58px;
+    width: 250px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+
+  .luxury__title,
+  .book__title,
+  .plan__title,
+  .reviews__title {
+    font-size: 50px;
+    line-height: 58px;
+  }
+  .trips__title {
+    margin-top: 0;
+  }
+
+  .trips-img__left-right {
+    display: none;
+  }
+  .trips__item-lux {
+    display: block;
+  }
+  .trips__title {
+    width: 100%;
+    margin-right: 0;
+  }
+  .trips__text {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .trips__item-center {
+    display: block;
+  }
+
+  .trips__item-center__title {
+    width: 100%;
+  }
+
+  .trips__item-center__text {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .itineraries {
+    flex-wrap: wrap;
+    padding-top: 20px;
+  }
+  .itineraries__item {
+    order: 2;
+    width: 100%;
+    text-align: center;
+  }
+
+  .itineraries__item::before {
+    right: 72px;
+  }
+  .itineraries__box {
+    order: 1;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .itineraries__title {
+    width: 100%;
+  }
+
+  .itineraries__btn {
+    margin-top: 28px;
+  }
+  .trips__item img {
+    top: -170px;
+  }
+}
+
+@media (max-width: 541px) {
+  .slick-dots {
+    display: flex;
+    height: 2px;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .slick-dots li {
+    width: 38px;
+    height: 2px;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+
+  .slick-dots li.slick-active button {
+    background-color: #79655e;
+  }
+  .reviews__inner {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 460px) {
+  h1 {
+    font-size: 72px;
+    line-height: 48px;
+  }
+  .top__img {
+    height: 455px;
+    object-fit: cover;
+  }
+  h2 {
+    font-size: 62px;
+    bottom: 430px;
+  }
+  .top__img-bottom {
+    height: 360px;
+    object-fit: cover;
+  }
+  .romb-topl {
+    margin-left: 37px;
+    top: -270px;
+  }
+  .romb-topr {
+    margin-right: 5px;
+    top: -260px;
+  }
+  .romb-left {
+    margin-left: 48px;
+    top: -19px;
+  }
+
+  .romb-right {
+    margin-right: 0px;
+  }
+  .search__title {
+    font-size: 22px;
+  }
+  .search__item-title,
+  .search__item-text {
+    font-size: 16px;
+  }
+  .product__item-img {
+    width: 300px;
+  }
+  .slider-arrows__right {
+    right: -40px;
+  }
+
+  .luxury__img {
+    width: 130px;
+    height: 280px;
+  }
+
+  .luxury__text {
+    font-size: 24px;
+    line-height: 80.5%;
+    padding-top: 20px;
+  }
+
+  .luxury__btn {
+    font-size: 28px;
+    line-height: 80.5%;
+  }
+
+  .luxury__box-btn::before {
+    width: 90px;
+    height: 157px;
+    backdrop-filter: blur(10px);
+    left: 17px;
+    top: 27px;
+  }
+  .luxury__box-btn::before {
+    width: 85px;
+    height: 160px;
+    left: 23px;
+    top: 10px;
+  }
+
+  .luxury__box-btn {
+    width: 130px;
+    height: 177px;
+  }
+
+  .luxury__button {
+    margin-bottom: 124px;
+  }
+
+  .luxury__title {
+    width: 129px;
+  }
+  .plan__title {
+    width: 280px;
+  }
+  .plan__item::before {
+    width: 70px;
+  }
+
+  .plan__item::after {
+    left: 34.37px;
+    height: 150px;
+    bottom: -43px;
+  }
+
+  .plan__item {
+    width: 280px;
+    padding-left: 85px;
+  }
+  .plan__text {
+    line-height: 141%;
+  }
+
+  .plan__subtitle {
+    width: 195px;
+  }
+
+  .plan__box {
+    width: 280px;
+  }
+  .plan__box-title {
+    padding: 15px;
+  }
+  .write__inner,
+  .write__item-box {
+    width: 280px;
+  }
+  .write__item-box::after {
+    width: 235px;
+  }
+
+  .write__title {
+    width: 255px;
+    font-size: 44px;
+    line-height: 44px;
+    text-align: center;
+  }
+  .write__input {
+    width: 256px;
+  }
+  .write__button {
+    padding: 16px 10px;
+    width: 190px;
+    font-size: 20px;
+  }
+  .write__button::before,
+  .write__button::after {
+    width: 50px;
+  }
+  .write__btn::before {
+    width: 30px;
+    top: -30px;
+    left: -47px;
+  }
+  .write__btn::after {
+    width: 30px;
+    left: -47px;
+  }
+  .write__inner::before,
+  .write__inner::after {
+    width: 85px;
+  }
+  .reviews__box {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .reviews-right::before {
+    width: 290px;
+    height: 500px;
+    left: 0;
+  }
+  .contacts__inner {
+    width: 255px;
+    height: 510px;
+    padding: 83px 10px 110px;
+  }
+  .contacts__inner::before {
+    width: 280px;
+  }
+  .contacts__title {
+    font-size: 44px;
+    line-height: 44px;
+  }
+  .contacts__form input {
+    width: 235px;
+  }
+  .contacts__box {
+    width: 190px;
+    font-size: 20px;
+  }
+  .contacts__box::before,
+  .contacts__box::after {
+    width: 50px;
+  }
+  .contacts__box-title {
+    padding: 14px 10px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .contacts__box-top::before,
+  .contacts__box-top::after {
+    width: 30px;
+  }
+  .footer__menu li {
+    margin: 0 12px;
+    margin-bottom: 30px;
+  }
+  .footer__bottom {
+    display: block;
+  }
+  .footer__box {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .header {
+    height: 768px;
+  }
+  .header-logo {
+    width: 75px;
+    /* height: 40px; */
+  }
+  .header__menu {
+    margin: 0;
+  }
+  .header__phone {
+    padding: 11px 6px;
+  }
+  .header__button {
+    width: 88px;
+  }
+  .header__menu {
+    margin-left: 26px;
+  }
+  .menu__list a {
+    padding: 22px 0;
+  }
+  .menu__list::before {
+    width: 200px;
+    height: 365px;
+  }
+  .top__text {
+    font-size: 14px;
+    width: 123px;
+  }
+  h1 {
+    font-size: 52px;
+    line-height: 36px;
+  }
+  .header-box {
+    padding: 24px 10px 72px 10px;
+  }
+  h2 {
+    font-size: 44px;
+    bottom: 406px;
+  }
+
+  .search__title {
+    width: 300px;
+  }
+  .search__box {
+    width: 320px;
+  }
+  .luxury__title {
+    margin-bottom: 19px;
+    margin-top: -10px;
+  }
+
+  .luxury__button {
+    margin-bottom: 266px;
+  }
+
+  .img__left {
+    margin-left: 0;
+  }
+
+  .trips__item img {
+    top: -275px;
+  }
+  .trips__title {
+    margin-top: -75px;
+  }
+}
+
+@media (max-width: 350px) {
+  .search__title {
+    width: 258px;
+    padding: 15px 24px;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .search__items {
+    padding: 36px 14px 36px 25px;
+  }
+  .search__box {
+    width: 281px;
+  }
+  .search__item-title,
+  .search__item-text {
+    font-size: 14px;
+  }
+  .form-input::placeholder {
+    font-size: 20px;
+  }
+}

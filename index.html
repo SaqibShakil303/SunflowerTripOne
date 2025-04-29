@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sunflower Trip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+</head>
+
+<body>
+
+  <header class="header" style="background-image: url(images/header-bg.jpg);">
+    <div class="header-box">
+      <img class="header-logo" src="images/logo21.png" alt="">
+      <div class="header-right">
+        <div class="contact-info">
+          <a href="tel:+916-7864-3466">+916-7864-3466</a>
+          <a href="#">FAQ/Help?</a>
+          <a href="#">Careers</a>
+          <a href="#">About us</a>
+          <a href="#">TravelGuides</a>
+          <a href="#" class="login">LOGIN / SIGNUP</a>
+        </div>
+        <nav class="header__menu">
+          <ul class="menu__list">
+            <li class="dropdown">
+              <a href="#">Holiday Packages <span>▼</span></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Beach Getaways</a></li>
+                <li><a href="#">City Breaks</a></li>
+                <li><a href="#">Adventure Tours</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Group Packages <span>▼</span></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Family Trips</a></li>
+                <li><a href="#">Corporate Retreats</a></li>
+                <li><a href="#">Friends Getaways</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Destinations <span>▼</span></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Europe</a></li>
+                <li><a href="#">Asia</a></li>
+                <li><a href="#">Africa</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#">Deals & offers <span>▼</span></a>
+              <ul class="dropdown-content">
+                <li><a href="#">Last Minute Deals</a></li>
+                <li><a href="#">Early Bird Offers</a></li>
+                <li><a href="#">Seasonal Discounts</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="header__button">
+       <button class="custom-btn">Customize My Holiday</button>
+     </div>
+        </nav>
+      </div>
+   
+    </div>
+
+
+    <div class="top__text _anim-items _anim-no-hide">explore the world</div>
+    <div>
+    <h1 class="_anim-items _anim-no-hide">Find Your</h1>
+    <img class="top__img" src="images/header-bg-1.png" alt="">
+    <div class="romb"></div>
+    <div class="romb-left"></div>
+    <div class="romb-right"></div>
+    <div class="romb-topl"></div>
+    <div class="romb-topr"></div>
+    <h2 class="_anim-items _anim-no-hide">luxury spot</h2>
+</div>
+    <img class="top__img-bottom" src="images/header-bg-2.png" alt="">
+
+    <div class="search">
+      <div class="container">
+        <div class="search__inner">
+
+          <div class="search__box">
+            <div class="search__box-top">
+              <div class="search__title">find your journey</div>
+            </div>
+          </div>
+
+          <div class="search__items">
+            <div class="search__item search__item-dest">
+              <div class="search__item-title search__item-title__1">Destination</div>
+              <div class="search__item-text">Where are you going?</div>
+            </div>
+            <div class="search__item-box">
+              <div class="search__item">
+                <div class="search__item-title search__item-title__2">Travel type</div>
+                <div class="search__item-text">Adventure Travel</div>
+              </div>
+              <div class="sear">
+                <div class="search__item">
+                  <div class="search__item-title search__item-title__3">When</div>
+                  <input type="date" id="start-date">
+                </div>
+                <div class="search__item">
+                  <div class="search__item-title search__item-title__4">Travellers</div>
+                  <div class="search__item-text"><span>2</span> Persons</div>
+                </div>
+              </div>
+              <form>
+                <input class="form-input" type="text" placeholder="🔍︎ Find">
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="products">
+    <div class="container-fluid">
+      <div class="products__title _anim-items">
+        Top Rated Experiences
+      </div>
+      <div class="products__inner">
+        <div class="products__inner-btn">
+          <button class="prod-btn prod-btn--active" type="button" data-filter="all">World</button>
+          <button class="prod-btn" type="button" data-filter=".category-africa">Africa</button>
+          <button class="prod-btn" type="button" data-filter=".category-asia">Asia</button>
+          <button class="prod-btn" type="button" data-filter=".category-europe">Europe</button>
+          <button class="prod-btn" type="button" data-filter=".category-north">North America</button>
+          <button class="prod-btn" type="button" data-filter=".category-south">South America</button>
+          <button class="prod-btn" type="button" data-filter=".category-antarctica">Antarctica</button>
+          <button class="prod-btn" type="button" data-filter=".category-australia">Australia</button>
+        </div>
+
+        <div class="info-slider">
+          <div class="product__item mix category-europe" data-order="1">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/austria-1.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">Austria</div>
+                <div class="product__info-title">Winter Park Ski Holiday</div>
+                <div class="product__info-price">From<span>€ 1490</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-south category-new" data-order="2">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/peru-1.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">Peru</div>
+                <div class="product__info-title">Machu Picchu</div>
+                <div class="product__info-price">From<span>€ 2300</span></div>
+              </div>
+              <div class="product__rating">5.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-europe" data-order="3">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/croatia-1.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">Croatia</div>
+                <div class="product__info-title">Hvar</div>
+                <div class="product__info-price">From<span>€ 4500</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-asia category-new" data-order="4">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-1.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">Jordan</div>
+                <div class="product__info-title">Wadi Musa</div>
+                <div class="product__info-price">From<span>€ 4500</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-europe" data-order="5">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/austria-2.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">Austria</div>
+                <div class="product__info-title">Winter</div>
+                <div class="product__info-price">From<span>€ 3490</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-south category-popular" data-order="6">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/peru-2.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">Peru</div>
+                <div class="product__info-title">Park</div>
+                <div class="product__info-price">From<span>€ 9490</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-europe category-popular" data-order="7">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/croatia-2.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">Croatia</div>
+                <div class="product__info-title">Ski Holiday</div>
+                <div class="product__info-price">From<span>€ 2490</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-asia" data-order="8">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-2.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 5690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-asia" data-order="9">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-3.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 3690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-asia" data-order="10">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-4.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 4690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-asia" data-order="11">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-5.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 5690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-asia" data-order="12">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-6.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 6690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-africa" data-order="13">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-6.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 6690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-north" data-order="14">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-6.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 6690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-antarctica" data-order="15">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-6.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 6690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+          <div class="product__item mix category-australia" data-order="16">
+            <a class="product__item-img" href="#"
+              style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, #0B2034 100%), url(images/gallerea/jordan-6.jpg)">
+              <div class="product__info">
+                <div class="product__info-subtitle">jordan</div>
+                <div class="product__info-title">Holiday</div>
+                <div class="product__info-price">From<span>€ 6690</span></div>
+              </div>
+              <div class="product__rating">4.0
+                <ul class="product__rating-star">
+                  <li><img src="images/products-icons/rating-1.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                  <li><img src="images/products-icons/rating-2.svg" alt=""></li>
+                </ul>
+              </div>
+            </a>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="luxury">
+    <div class="container">
+      <div class="luxury__inner">
+
+        <div class="luxury__item">
+
+          <div class="luxury__title  _anim-items">Luxury Packages</div>
+          <a class="luxury__button" href="#">view all</a>
+
+          <div class="luxury__img" href="#"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 62%, #0B2034 105%), url(images/luxury/luxury-1.jpg)">
+            <div class="luxury__text">New destinations for 2022</div>
+            <div class="luxury__box-btn">
+              <div class="box">
+                <a class="luxury__btn" href="#">47
+                  <span class="luxury__btn-span">places</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="luxury__item">
+          <div class="luxury__img" href="#"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 62%, #0B2034 105%), url(images/luxury/luxury-2.jpg)">
+            <div class="luxury__text">Best Winter Destinations</div>
+            <div class="luxury__box-btn">
+              <div class="box">
+                <a class="luxury__btn" href="#">34
+                  <span class="luxury__btn-span">places</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="luxury__img" href="#"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 62%, #0B2034 105%), url(images/luxury/luxury-3.jpg)">
+            <div class="luxury__text">Your health is matter</div>
+            <div class="luxury__box-btn">
+              <div class="box">
+                <a class="luxury__btn" href="#">29
+                  <span class="luxury__btn-span">places</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="luxury__item">
+          <div class="luxury__img" href="#"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 62%, #0B2034 105%), url(images/luxury/luxury-4.jpg)">
+            <div class="luxury__text">The world's most extraordinary places</div>
+            <div class="luxury__box-btn">
+              <div class="box">
+                <a class="luxury__btn" href="#">29
+                  <span class="luxury__btn-span">places</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="luxury__img" href="#"
+            style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 62%, #0B2034 105%), url(images/luxury/luxury-5.jpg)">
+            <div class="luxury__text">Experiences Away From Crowd</div>
+            <div class="luxury__box-btn">
+              <div class="box">
+                <a class="luxury__btn" href="#">168
+                  <span class="luxury__btn-span">places</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book">
+    <div class="container">
+      <div class="book__title  _anim-items">Book With Us</div>
+      <div class="book__list">
+        <a href="#">
+          <div class="book__img" style="background-image: url(images/book/supercars.jpg)">
+            <div class="book__box-btn"><span>Supercars</span></div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="book__img" style="background-image: url(images/book/hotels.jpg)">
+            <div class="book__box-btn"><span>Hotels</span></div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="book__img" style="background-image: url(images/book/villas.jpg)">
+            <div class="book__box-btn"><span>Villas</span></div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="book__img" style="background-image: url(images/book/yachts.jpg)">
+            <div class="book__box-btn"><span>Yachts</span></div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="book__img" style="background-image: url(images/book/helicopter.jpg)">
+            <div class="book__box-btn"><span>Private Helicopter</span></div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="book__img" style="background-image: url(images/book/jet.jpg)">
+            <div class="book__box-btn"><span>Private Jet</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trips">
+    <div class="trips__inner" style="background-image: url(images/trips/trips-bg.png)">
+      <div class="container">
+        <div class="trips__items">
+          <div class="trips__item-lux">
+            <div class="trips__title _anim-items">Why Sunflower Trip</div>
+            <div class="trips__text">As Travel Designer, we know the ins and outs of travel from who to work with, where
+              to go, when to book, and which restaurant provides the most authentic cuisine. </div>
+          </div>
+          <div class="trips-img">
+            <div class="trips-img__left"><img class="img__left" src="images/trips/img-left.jpg" alt=""></div>
+            <div class="trips-img__left-right"><img class="img__right" src="images/trips/img-right.jpg" alt=""></div>
+          </div>
+          <div class="trips__item-romb"></div>
+          <div class="trips__item-center">
+            <div class="trips__item-center__title">Exclusive knowledge to provide the best of the best to clients
+            </div>
+            <div class="trips__item-center__text">Our area of expertise ranges from luxury resorts and villas/chalets
+              holiday bookings, private yacht and jet charters, to exclusive tours and personalized journey planning.
+            </div>
+          </div>
+          <div class="trips__item"><img src="images/trips/img-bt-right.jpg" alt=""></div>
+          <div class="itineraries">
+            <div class="itineraries__item"><img src="images/trips/itineraries.jpg" alt=""></div>
+            <div class="itineraries__box">
+              <div class="itineraries__title">We craft and plan unique itineraries tailored to customers’ interests and
+                with strong attention to detail.</div>
+              <button class="itineraries__btn">help me plan a trip</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan">
+    <div class="container">
+      <div class="plan__title _anim-items">Customise <br> your trip with us</div>
+      <div class="plan__inner">
+        <div class="plan__item">
+          <div class="plan__subtitle">Describe your dream trip</div>
+          <div class="plan__text">Let us know what your perfect vacation is. Destinations, preferences, and personal
+            interests. </div>
+        </div>
+        <div class="plan__item">
+          <div class="plan__subtitle">Get matched</div>
+          <div class="plan__text">Our team will create perfect travel itinerary for you, based on your personalized
+            needs and wishes. </div>
+        </div>
+        <div class="plan__item">
+          <div class="plan__subtitle">Book your vacation</div>
+          <div class="plan__text">Confirm your trip only when you are completely satisfied with the proposed travel
+            plan.</div>
+        </div>
+        <div class="plan__box">
+          <div class="plan__box-top ">
+            <div class="plan__box-title">find your journey</div>
+          </div>
+        </div>
+        <div class="plan__box-text">It’s Free! - no credit card required</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="write">
+    <div class="container">
+      <div class="write__inner">
+        <div class="write__item">
+          <div class="write__item-box" style="background-image: url(images/plan/plan-img-bg.jpg);">
+            <div class="write__title">Get weekly inspiration and expert advice</div>
+            <div class="write__text">Sign up for our Weekly Newsletter</div>
+            <form>
+              <input class="write__input" type="mail" name="mail" placeholder="Email address">
+              <button class="write__button" type="submit">Subscribe <span class="write__btn"></span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <secttion class="reviews">
+    <div class="reviews__title _anim-items">Customers reviews</div>
+    <div class="reviews-slider">
+      <div class="reviews__inner">
+        <div class="reviews__box">
+          <div class="reviews__item">
+            <div class="reviews__item-span">
+              <div class="reviews__item-box">
+                <div class="reviews__img" style="background-image: url(images/edi.jpg);"></div>
+                <blockquote class="reviews__quote">
+                  “Well organized trip, All arranged well by Arooz. Special thanks to Aijaz Bhai for the service and
+                  support
+                  given to us, all explained well and take us to all places as per our wish. It was a wonderful
+                  experience
+                  .... Thank you team”
+                  <div class="author">- Eduard Hand
+                    <span>Müller-Egerer</span>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews__inner">
+        <div class="reviews__box">
+          <div class="reviews__item">
+            <div class="reviews__item-span">
+              <div class="reviews__item-box">
+                <div class="reviews__img" style="background-image: url(images/marie.jpg);"></div>
+                <blockquote class="reviews__quote">
+                  “We want to visit Manali from long time. Abhishek from ideal tour give us the best quote for Manali
+                  tour. He was very supportive and approachable at any time. He made our trip hassle-free. Thanks for
+                  your
+                  great help Abhishek...Ideal Tour..!!!”
+                  <div class="author">- Marie Kähler
+                    <span>Lekkerland</span>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews__inner">
+        <div class="reviews__box">
+          <div class="reviews__item">
+            <div class="reviews__item-span">
+              <div class="reviews__item-box">
+                <div class="reviews__img" style="background-image: url(images/edi.jpg);"></div>
+                <blockquote class="reviews__quote">
+                  “Well organized trip, All arranged well by Arooz. Special thanks to Aijaz Bhai for the service and
+                  support
+                  given to us, all explained well and take us to all places as per our wish. It was a wonderful
+                  experience
+                  .... Thank you team”
+                  <div class="author">- Eduard Hand
+                    <span>Müller-Egerer</span>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews__inner">
+        <div class="reviews__box">
+          <div class="reviews__item">
+            <div class="reviews__item-span">
+              <div class="reviews__item-box">
+                <div class="reviews__img" style="background-image: url(images/marie.jpg);"></div>
+                <blockquote class="reviews__quote">
+                  “We want to visit Manali from long time. Abhishek from ideal tour give us the best quote for Manali
+                  tour. He was very supportive and approachable at any time. He made our trip hassle-free. Thanks for
+                  your
+                  great help Abhishek...Ideal Tour..!!!”
+                  <div class="author">- Marie Kähler
+                    <span>Lekkerland</span>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </secttion>
+
+  <section>
+    <div class="contacts">
+      <div class="container">
+        <div class="contacts__boxic">
+          <div class="contacts__inner">
+            <form class="contacts__form">
+              <div class="contacts__title">Contact</div>
+              <input type="text" placeholder="Name">
+              <input type="text" placeholder="Phone">
+              <div class="contacts__box">
+                <div class="contacts__box-top">
+                  <div class="contacts__box-title">Call me back</div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <img class="footer__logo" src="images/logo.png" alt="">
+        <div class="footer__items">
+
+          <nav class="footer__menu">
+            <ul>
+              <li><a href="#">Luxury packages</a></li>
+              <li><a href="#">Book with us</a></li>
+              <li>
+                <div class="footer__button">
+                  <div class="footer__btn">
+                    <a class="footer__phone" href="tel:34622227241">Call Me <span>Back</span></a>
+                  </div>
+                </div>
+              </li>
+              <li><a href="#">Why Lux Trips</a></li>
+              <li><a href="#">Contact</a></li>
+
+            </ul>
+          </nav>
+
+        </div>
+
+        <div class="footer__bottom">
+          <a href="#">© 2021 All Rights Reserved | Luxtrips</a>
+          <div class="footer__box">
+            <a href="#">Company Site</a> <span> | </span>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/mixitup.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
