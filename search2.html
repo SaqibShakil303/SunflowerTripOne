@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Trip Search Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .customize-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .customize-title h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            padding: 8px 25px;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-header {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .search-header-item {
+            padding: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .search-inputs {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .search-input-item {
+            flex: 1;
+            padding: 15px;
+            position: relative;
+            min-width: 200px;
+            transition: all 0.3s;
+            cursor: pointer;
+            background-color: #c3d7f0;
+            border-right: 1px solid #d8e4f2;
+        }
+
+        .search-input-item:last-child {
+            border-right: none;
+        }
+
+        .search-input-item:hover {
+            background-color: #d8e4f2;
+        }
+
+        .small-label {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .input-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .sub-label {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .find-button {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            background-color: #f5f5f5;
+        }
+
+        .find-button button {
+            background-color: #2b7dfc;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            font-size: 14px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .find-button button:hover {
+            background-color: #1a68e0;
+        }
+
+        .search-icon {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        /* Dropdown styling */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            border-radius: 0 0 8px 8px;
+            z-index: 100;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-header {
+            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .dropdown-searchbox {
+            padding: 10px;
+            background-color: #000;
+        }
+
+        .dropdown-searchbox input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background-color: #222;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .dropdown-content {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .dropdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #333;
+            color: #fff;
+        }
+
+        .dropdown-item:hover {
+            background-color: #333;
+        }
+
+        .dropdown-item .name {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .dropdown-item .type {
+            color: #888;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .dropdown-item .packages {
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* Calendar styling */
+        .calendar-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .calendar-months {
+            display: flex;
+        }
+
+        .calendar-month {
+            flex: 1;
+            padding: 15px;
+            border-right: 1px solid #eee;
+        }
+
+        .calendar-month:last-child {
+            border-right: none;
+        }
+
+        .month-name {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .day-name {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding: 5px 0;
+        }
+
+        .day {
+            text-align: center;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .day:hover {
+            background-color: #f0f7ff;
+        }
+
+        .day.active {
+            background-color: #2b7dfc;
+            color: white;
+        }
+
+        .day.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Guests dropdown */
+        .guests-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 320px;
+            background-color: #fff;
+            border-radius: 8px;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+        }
+
+        .guest-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guest-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guest-label {
+            font-weight: 500;
+        }
+
+        .guest-counter {
+            display: flex;
+            align-items: center;
+        }
+
+        .counter-btn {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .counter-btn:hover {
+            background-color: #e5e5e5;
+        }
+
+        .counter-value {
+            padding: 0 15px;
+            font-weight: 600;
+        }
+
+        /* Filters dropdown */
+        .filters-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 350px;
+            background-color: #fff;
+            border-radius: 8px;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+        }
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .slider-container {
+            padding: 0 10px;
+        }
+
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 5px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            margin: 15px 0;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2b7dfc;
+            cursor: pointer;
+        }
+
+        .slider-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .budget-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .budget-option {
+            padding: 8px 15px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .budget-option:hover, .budget-option.active {
+            background-color: #2b7dfc;
+            color: white;
+            border-color: #2b7dfc;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .search-header-item, .search-input-item {
+                min-width: 100%;
+            }
+
+            .calendar-dropdown, .guests-dropdown, .filters-dropdown {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+
+            .calendar-months {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="customize-title">
+            <h2>CUSTOMIZE YOUR TRIP</h2>
+        </div>
+
+        <div class="search-box">
+            <div class="search-header">
+                <div class="search-header-item">From City</div>
+                <div class="search-header-item">To City/Country/Category</div>
+                <div class="search-header-item">Departure Date</div>
+                <div class="search-header-item">Rooms & Guests</div>
+                <div class="search-header-item">Filters</div>
+            </div>
+
+            <div class="search-inputs">
+                <div class="search-input-item" id="from-city">
+                    <span class="small-label">From</span>
+                    <div class="input-value">Kolkata</div>
+                    <div class="sub-label">India</div>
+                </div>
+
+                <div class="search-input-item" id="to-destination">
+                    <span class="small-label">To</span>
+                    <div class="input-value">Thailand</div>
+                    <div class="sub-label"></div>
+                </div>
+
+                <div class="search-input-item" id="departure-date">
+                    <span class="small-label">Departure Date</span>
+                    <div class="input-value">3 Aug, 2025</div>
+                    <div class="sub-label">Sunday</div>
+                </div>
+
+                <div class="search-input-item" id="rooms-guests">
+                    <span class="small-label">Rooms & Guests</span>
+                    <div class="input-value">4 Adults, 2 Children</div>
+                    <div class="sub-label">2 Rooms</div>
+                </div>
+
+                <div class="search-input-item" id="filters">
+                    <span class="small-label">Filters</span>
+                    <div class="input-value">Select Budget</div>
+                    <div class="sub-label">4★ Star Hotel</div>
+                </div>
+            </div>
+
+            <div class="find-button">
+                <button>
+                    Find
+                    <span class="search-icon">🔍</span>
+                </button>
+            </div>
+
+            <!-- Dropdowns -->
+            <!-- From City Dropdown -->
+            <div class="dropdown" id="from-city-dropdown">
+                <div class="dropdown-header">FROM</div>
+                <div class="dropdown-searchbox">
+                    <input type="text" placeholder="Search cities...">
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-city="New Delhi" data-country="India">
+                        <div>
+                            <div class="name">New Delhi</div>
+                            <div class="packages">340 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Mumbai" data-country="India">
+                        <div>
+                            <div class="name">Mumbai</div>
+                            <div class="packages">280 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Bangalore" data-country="India">
+                        <div>
+                            <div class="name">Bangalore</div>
+                            <div class="packages">210 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Chennai" data-country="India">
+                        <div>
+                            <div class="name">Chennai</div>
+                            <div class="packages">190 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Kolkata" data-country="India">
+                        <div>
+                            <div class="name">Kolkata</div>
+                            <div class="packages">220 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- To Destination Dropdown -->
+            <div class="dropdown" id="to-destination-dropdown">
+                <div class="dropdown-header">POPULAR DESTINATIONS</div>
+                <div class="dropdown-searchbox">
+                    <input type="text" placeholder="Search destinations...">
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-destination="Kashmir" data-type="STATE">
+                        <div>
+                            <div class="name">Kashmir</div>
+                            <div class="packages">240 Packages</div>
+                        </div>
+                        <div class="type">STATE</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Thailand" data-type="COUNTRY">
+                        <div>
+                            <div class="name">Thailand</div>
+                            <div class="packages">240 Packages</div>
+                        </div>
+                        <div class="type">COUNTRY</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Goa" data-type="STATE">
+                        <div>
+                            <div class="name">Goa</div>
+                            <div class="packages">180 Packages</div>
+                        </div>
+                        <div class="type">STATE</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Bali" data-type="CITY">
+                        <div>
+                            <div class="name">Bali</div>
+                            <div class="packages">150 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Singapore" data-type="COUNTRY">
+                        <div>
+                            <div class="name">Singapore</div>
+                            <div class="packages">130 Packages</div>
+                        </div>
+                        <div class="type">COUNTRY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Dropdown -->
+            <div class="calendar-dropdown" id="calendar-dropdown">
+                <div class="calendar-header">
+                    <button id="prev-month">← Previous</button>
+                    <button id="next-month">Next →</button>
+                </div>
+                <div class="calendar-months">
+                    <div class="calendar-month" id="month1">
+                        <div class="month-name"></div>
+                        <div class="calendar-grid">
+                            <div class="day-name">Su</div>
+                            <div class="day-name">Mo</div>
+                            <div class="day-name">Tu</div>
+                            <div class="day-name">We</div>
+                            <div class="day-name">Th</div>
+                            <div class="day-name">Fr</div>
+                            <div class="day-name">Sa</div>
+                        </div>
+                    </div>
+                    <div class="calendar-month" id="month2">
+                        <div class="month-name"></div>
+                        <div class="calendar-grid">
+                            <div class="day-name">Su</div>
+                            <div class="day-name">Mo</div>
+                            <div class="day-name">Tu</div>
+                            <div class="day-name">We</div>
+                            <div class="day-name">Th</div>
+                            <div class="day-name">Fr</div>
+                            <div class="day-name">Sa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rooms & Guests Dropdown -->
+            <div class="guests-dropdown" id="guests-dropdown">
+                <div class="guest-row">
+                    <div class="guest-label">Rooms</div>
+                    <div class="guest-counter">
+                        <div class="counter-btn" id="rooms-minus">-</div>
+                        <div class="counter-value" id="rooms-value">2</div>
+                        <div class="counter-btn" id="rooms-plus">+</div>
+                    </div>
+                </div>
+                <div class="guest-row">
+                    <div class="guest-label">Adults</div>
+                    <div class="guest-counter">
+                        <div class="counter-btn" id="adults-minus">-</div>
+                        <div class="counter-value" id="adults-value">4</div>
+                        <div class="counter-btn" id="adults-plus">+</div>
+                    </div>
+                </div>
+                <div class="guest-row">
+                    <div class="guest-label">Children</div>
+                    <div class="guest-counter">
+                        <div class="counter-btn" id="children-minus">-</div>
+                        <div class="counter-value" id="children-value">2</div>
+                        <div class="counter-btn" id="children-plus">+</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters Dropdown -->
+            <div class="filters-dropdown" id="filters-dropdown">
+                <div class="filter-section">
+                    <div class="filter-title">Duration (in nights)</div>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="15" value="7" class="slider" id="duration-slider">
+                        <div class="slider-values">
+                            <span>1 Night</span>
+                            <span id="duration-value">7 Nights</span>
+                            <span>15 Nights</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-title">Budget per person</div>
+                    <div class="budget-options">
+                        <div class="budget-option active" data-budget="economy">Economy</div>
+                        <div class="budget-option" data-budget="standard">Standard</div>
+                        <div class="budget-option" data-budget="premium">Premium</div>
+                        <div class="budget-option" data-budget="luxury">Luxury</div>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-title">Hotel Category</div>
+                    <div class="budget-options">
+                        <div class="budget-option" data-stars="3">3★ Star</div>
+                        <div class="budget-option active" data-stars="4">4★ Star</div>
+                        <div class="budget-option" data-stars="5">5★ Star</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Close all dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            const dropdowns = document.querySelectorAll('.dropdown, .calendar-dropdown, .guests-dropdown, .filters-dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target) && !e.target.closest('.search-input-item')) {
+                    dropdown.style.display = 'none';
+                }
+            });
+        });
+
+        // From City Dropdown
+        const fromCity = document.getElementById('from-city');
+        const fromCityDropdown = document.getElementById('from-city-dropdown');
+        fromCity.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllDropdowns();
+            fromCityDropdown.style.display = 'block';
+        });
+
+        const fromCityItems = fromCityDropdown.querySelectorAll('.dropdown-item');
+        fromCityItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const city = item.getAttribute('data-city');
+                const country = item.getAttribute('data-country');
+                fromCity.querySelector('.input-value').textContent = city;
+                fromCity.querySelector('.sub-label').textContent = country;
+                fromCityDropdown.style.display = 'none';
+            });
+        });
+
+        // To Destination Dropdown
+        const toDestination = document.getElementById('to-destination');
+        const toDestinationDropdown = document.getElementById('to-destination-dropdown');
+        toDestination.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllDropdowns();
+            toDestinationDropdown.style.display = 'block';
+        });
+
+        const toDestinationItems = toDestinationDropdown.querySelectorAll('.dropdown-item');
+        toDestinationItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const destination = item.getAttribute('data-destination');
+                const type = item.getAttribute('data-type');
+                toDestination.querySelector('.input-value').textContent = destination;
+                toDestination.querySelector('.sub-label').textContent = type;
+                toDestinationDropdown.style.display = 'none';
+            });
+        });
+
+        // Calendar Dropdown
+        const departureDate = document.getElementById('departure-date');
+        const calendarDropdown = document.getElementById('calendar-dropdown');
+        const month1 = document.getElementById('month1');
+        const month2 = document.getElementById('month2');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+
+        let currentDate = new Date(2025, 7, 3); // Start from August 2025
+        let selectedDate = new Date(2025, 7, 3); // Default selected date (3 Aug 2025)
+
+        function populateCalendar() {
+            const month1Date = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+            const month2Date = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+
+            // Populate Month 1
+            month1.querySelector('.month-name').textContent = month1Date.toLocaleString('default', { month: 'long', year: 'numeric' });
+            const month1Grid = month1.querySelector('.calendar-grid');
+            month1Grid.innerHTML = month1Grid.innerHTML.split('</div>').slice(0, 7).join('</div>') + '</div>'; // Keep day names
+            const firstDay1 = month1Date.getDay();
+            const daysInMonth1 = new Date(month1Date.getFullYear(), month1Date.getMonth() + 1, 0).getDate();
+            for (let i = 0; i < firstDay1; i++) {
+                const emptyDay = document.createElement('div');
+                month1Grid.appendChild(emptyDay);
+            }
+            for (let i = 1; i <= daysInMonth1; i++) {
+                const day = document.createElement('div');
+                day.className = 'day';
+                day.textContent = i;
+                if (i === selectedDate.getDate() && month1Date.getMonth() === selectedDate.getMonth() && month1Date.getFullYear() === selectedDate.getFullYear()) {
+                    day.classList.add('active');
+                }
+                day.addEventListener('click', () => {
+                    selectedDate = new Date(month1Date.getFullYear(), month1Date.getMonth(), i);
+                    updateSelectedDate();
+                    populateCalendar();
+                    calendarDropdown.style.display = 'none';
+                });
+                month1Grid.appendChild(day);
+            }
+
+            // Populate Month 2
+            month2.querySelector('.month-name').textContent = month2Date.toLocaleString('default', { month: 'long', year: 'numeric' });
+            const month2Grid = month2.querySelector('.calendar-grid');
+            month2Grid.innerHTML = month2Grid.innerHTML.split('</div>').slice(0, 7).join('</div>') + '</div>'; // Keep day names
+            const firstDay2 = month2Date.getDay();
+            const daysInMonth2 = new Date(month2Date.getFullYear(), month2Date.getMonth() + 1, 0).getDate();
+            for (let i = 0; i < firstDay2; i++) {
+                const emptyDay = document.createElement('div');
+                month2Grid.appendChild(emptyDay);
+            }
+            for (let i = 1; i <= daysInMonth2; i++) {
+                const day = document.createElement('div');
+                day.className = 'day';
+                day.textContent = i;
+                if (i === selectedDate.getDate() && month2Date.getMonth() === selectedDate.getMonth() && month2Date.getFullYear() === selectedDate.getFullYear()) {
+                    day.classList.add('active');
+                }
+                day.addEventListener('click', () => {
+                    selectedDate = new Date(month2Date.getFullYear(), month2Date.getMonth(), i);
+                    updateSelectedDate();
+                    populateCalendar();
+                    calendarDropdown.style.display = 'none';
+                });
+                month2Grid.appendChild(day);
+            }
+        }
+
+        function updateSelectedDate() {
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            departureDate.querySelector('.input-value').textContent = selectedDate.toLocaleDateString('en-US', options);
+            departureDate.querySelector('.sub-label').textContent = selectedDate.toLocaleString('default', { weekday: 'long' });
+        }
+
+        departureDate.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllDropdowns();
+            calendarDropdown.style.display = 'block';
+            populateCalendar();
+        });
+
+        prevMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            populateCalendar();
+        });
+
+        nextMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            populateCalendar();
+        });
+
+        // Rooms & Guests Dropdown
+        const roomsGuests = document.getElementById('rooms-guests');
+        const guestsDropdown = document.getElementById('guests-dropdown');
+        const roomsMinus = document.getElementById('rooms-minus');
+        const roomsPlus = document.getElementById('rooms-plus');
+        const roomsValue = document.getElementById('rooms-value');
+        const adultsMinus = document.getElementById('adults-minus');
+        const adultsPlus = document.getElementById('adults-plus');
+        const adultsValue = document.getElementById('adults-value');
+        const childrenMinus = document.getElementById('children-minus');
+        const childrenPlus = document.getElementById('children-plus');
+        const childrenValue = document.getElementById('children-value');
+
+        roomsGuests.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllDropdowns();
+            guestsDropdown.style.display = 'block';
+        });
+
+        function updateGuestsDisplay() {
+            const adults = parseInt(adultsValue.textContent);
+            const children = parseInt(childrenValue.textContent);
+            const rooms = parseInt(roomsValue.textContent);
+            roomsGuests.querySelector('.input-value').textContent = `${adults} Adults, ${children} Children`;
+            roomsGuests.querySelector('.sub-label').textContent = `${rooms} Rooms`;
+        }
+
+        roomsMinus.addEventListener('click', () => {
+            let value = parseInt(roomsValue.textContent);
+            if (value > 1) {
+                roomsValue.textContent = value - 1;
+                updateGuestsDisplay();
+            }
+        });
+
+        roomsPlus.addEventListener('click', () => {
+            let value = parseInt(roomsValue.textContent);
+            roomsValue.textContent = value + 1;
+            updateGuestsDisplay();
+        });
+
+        adultsMinus.addEventListener('click', () => {
+            let value = parseInt(adultsValue.textContent);
+            if (value > 1) {
+                adultsValue.textContent = value - 1;
+                updateGuestsDisplay();
+            }
+        });
+
+        adultsPlus.addEventListener('click', () => {
+            let value = parseInt(adultsValue.textContent);
+            adultsValue.textContent = value + 1;
+            updateGuestsDisplay();
+        });
+
+        childrenMinus.addEventListener('click', () => {
+            let value = parseInt(childrenValue.textContent);
+            if (value > 0) {
+                childrenValue.textContent = value - 1;
+                updateGuestsDisplay();
+            }
+        });
+
+        childrenPlus.addEventListener('click', () => {
+            let value = parseInt(childrenValue.textContent);
+            childrenValue.textContent = value + 1;
+            updateGuestsDisplay();
+        });
+
+        // Filters Dropdown
+        const filters = document.getElementById('filters');
+        const filtersDropdown = document.getElementById('filters-dropdown');
+        const durationSlider = document.getElementById('duration-slider');
+        const durationValue = document.getElementById('duration-value');
+        const budgetOptions = document.querySelectorAll('.budget-options .budget-option[data-budget]');
+        const starOptions = document.querySelectorAll('.budget-options .budget-option[data-stars]');
+
+        filters.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllDropdowns();
+            filtersDropdown.style.display = 'block';
+        });
+
+        durationSlider.addEventListener('input', () => {
+            durationValue.textContent = `${durationSlider.value} Nights`;
+            updateFiltersDisplay();
+        });
+
+        budgetOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                budgetOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                updateFiltersDisplay();
+            });
+        });
+
+        starOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                starOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                updateFiltersDisplay();
+            });
+        });
+
+        function updateFiltersDisplay() {
+            const duration = durationSlider.value;
+            const budget = document.querySelector('.budget-option[data-budget].active').textContent;
+            const stars = document.querySelector('.budget-option[data-stars].active').textContent;
+            filters.querySelector('.input-value').textContent = `${budget}`;
+            filters.querySelector('.sub-label').textContent = `${stars}, ${duration} Nights`;
+        }
+
+        function closeAllDropdowns() {
+            const dropdowns = document.querySelectorAll('.dropdown, .calendar-dropdown, .guests-dropdown, .filters-dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html> 

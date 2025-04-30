@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/slick.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/media.css">
+  <link rel="stylesheet" href="css/search-box.css">
 </head>
 
 <body>
@@ -93,11 +94,243 @@
 
           <div class="search__box">
             <div class="search__box-top">
-              <div class="search__title">find your journey</div>
+              <div class="search__title">Customize your trip</div>
             </div>
           </div>
+          <div class="search-box">
+            <div class="search-header">
+                <div class="search-header-item">From City</div>
+                <div class="search-header-item">To City/Country/Category</div>
+                <div class="search-header-item">Departure Date</div>
+                <div class="search-header-item">Rooms & Guests</div>
+                <div class="search-header-item">Filters</div>
+            </div>
 
-          <div class="search__items">
+            <div class="search-inputs">
+                <div class="search-input-item" id="from-city">
+                    <span class="small-label">From</span>
+                    <div class="input-value">Kolkata</div>
+                    <div class="sub-label">India</div>
+                </div>
+
+                <div class="search-input-item" id="to-destination">
+                    <span class="small-label">To</span>
+                    <div class="input-value">Thailand</div>
+                    <div class="sub-label"></div>
+                </div>
+
+                <div class="search-input-item" id="departure-date">
+                    <span class="small-label">Departure Date</span>
+                    <div class="input-value">3 Aug, 2025</div>
+                    <div class="sub-label">Sunday</div>
+                </div>
+
+                <div class="search-input-item" id="rooms-guests">
+                    <span class="small-label">Rooms & Guests</span>
+                    <div class="input-value">4 Adults, 2 Children</div>
+                    <div class="sub-label">2 Rooms</div>
+                </div>
+
+                <div class="search-input-item" id="filters">
+                    <span class="small-label">Filters</span>
+                    <div class="input-value">Select Budget</div>
+                    <div class="sub-label">4★ Star Hotel</div>
+                </div>
+            </div>
+
+            <div class="find-button">
+                <button>
+                    Find
+                    <span class="search-icon">🔍</span>
+                </button>
+            </div>
+
+            <!-- Dropdowns -->
+            <!-- From City Dropdown -->
+            <div class="dropdown-sach" id="from-city-dropdown">
+                <div class="dropdown-header">FROM</div>
+                <div class="dropdown-searchbox">
+                    <input type="text" placeholder="Search cities...">
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-city="New Delhi" data-country="India">
+                        <div>
+                            <div class="name">New Delhi</div>
+                            <div class="packages">340 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Mumbai" data-country="India">
+                        <div>
+                            <div class="name">Mumbai</div>
+                            <div class="packages">280 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Bangalore" data-country="India">
+                        <div>
+                            <div class="name">Bangalore</div>
+                            <div class="packages">210 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Chennai" data-country="India">
+                        <div>
+                            <div class="name">Chennai</div>
+                            <div class="packages">190 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-city="Kolkata" data-country="India">
+                        <div>
+                            <div class="name">Kolkata</div>
+                            <div class="packages">220 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- To Destination Dropdown -->
+            <div class="dropdown-sach" id="to-destination-dropdown">
+                <div class="dropdown-header">POPULAR DESTINATIONS</div>
+                <div class="dropdown-searchbox">
+                    <input type="text" placeholder="Search destinations...">
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-destination="Kashmir" data-type="STATE">
+                        <div>
+                            <div class="name">Kashmir</div>
+                            <div class="packages">240 Packages</div>
+                        </div>
+                        <div class="type">STATE</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Thailand" data-type="COUNTRY">
+                        <div>
+                            <div class="name">Thailand</div>
+                            <div class="packages">240 Packages</div>
+                        </div>
+                        <div class="type">COUNTRY</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Goa" data-type="STATE">
+                        <div>
+                            <div class="name">Goa</div>
+                            <div class="packages">180 Packages</div>
+                        </div>
+                        <div class="type">STATE</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Bali" data-type="CITY">
+                        <div>
+                            <div class="name">Bali</div>
+                            <div class="packages">150 Packages</div>
+                        </div>
+                        <div class="type">CITY</div>
+                    </div>
+                    <div class="dropdown-item" data-destination="Singapore" data-type="COUNTRY">
+                        <div>
+                            <div class="name">Singapore</div>
+                            <div class="packages">130 Packages</div>
+                        </div>
+                        <div class="type">COUNTRY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Dropdown -->
+            <div class="calendar-dropdown" id="calendar-dropdown">
+                <div class="calendar-header">
+                    <button id="prev-month">← Previous</button>
+                    <button id="next-month">Next →</button>
+                </div>
+                <div class="calendar-months">
+                    <div class="calendar-month" id="month1">
+                        <div class="month-name"></div>
+                        <div class="calendar-grid">
+                            <div class="day-name">Su</div>
+                            <div class="day-name">Mo</div>
+                            <div class="day-name">Tu</div>
+                            <div class="day-name">We</div>
+                            <div class="day-name">Th</div>
+                            <div class="day-name">Fr</div>
+                            <div class="day-name">Sa</div>
+                        </div>
+                    </div>
+                    <div class="calendar-month" id="month2">
+                        <div class="month-name"></div>
+                        <div class="calendar-grid">
+                            <div class="day-name">Su</div>
+                            <div class="day-name">Mo</div>
+                            <div class="day-name">Tu</div>
+                            <div class="day-name">We</div>
+                            <div class="day-name">Th</div>
+                            <div class="day-name">Fr</div>
+                            <div class="day-name">Sa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rooms & Guests Dropdown -->
+            <div class="guests-dropdown" id="guests-dropdown">
+                <div class="guest-row">
+                    <div class="guest-label">Rooms</div>
+                    <div class="guest-counter">
+                        <div class="counter-btn" id="rooms-minus">-</div>
+                        <div class="counter-value" id="rooms-value">2</div>
+                        <div class="counter-btn" id="rooms-plus">+</div>
+                    </div>
+                </div>
+                <div class="guest-row">
+                    <div class="guest-label">Adults</div>
+                    <div class="guest-counter">
+                        <div class="counter-btn" id="adults-minus">-</div>
+                        <div class="counter-value" id="adults-value">4</div>
+                        <div class="counter-btn" id="adults-plus">+</div>
+                    </div>
+                </div>
+                <div class="guest-row">
+                    <div class="guest-label">Children</div>
+                    <div class="guest-counter">
+                        <div class="counter-btn" id="children-minus">-</div>
+                        <div class="counter-value" id="children-value">2</div>
+                        <div class="counter-btn" id="children-plus">+</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters Dropdown -->
+            <div class="filters-dropdown" id="filters-dropdown">
+                <div class="filter-section">
+                    <div class="filter-title">Duration (in nights)</div>
+                    <div class="slider-container">
+                        <input type="range" min="1" max="15" value="7" class="slider" id="duration-slider">
+                        <div class="slider-values">
+                            <span>1 Night</span>
+                            <span id="duration-value">7 Nights</span>
+                            <span>15 Nights</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-title">Budget per person</div>
+                    <div class="budget-options">
+                        <div class="budget-option active" data-budget="economy">Economy</div>
+                        <div class="budget-option" data-budget="standard">Standard</div>
+                        <div class="budget-option" data-budget="premium">Premium</div>
+                        <div class="budget-option" data-budget="luxury">Luxury</div>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-title">Hotel Category</div>
+                    <div class="budget-options">
+                        <div class="budget-option" data-stars="3">3★ Star</div>
+                        <div class="budget-option active" data-stars="4">4★ Star</div>
+                        <div class="budget-option" data-stars="5">5★ Star</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- <div class="search__items">
             <div class="search__item search__item-dest">
               <div class="search__item-title search__item-title__1">Destination</div>
               <div class="search__item-text">Where are you going?</div>
@@ -121,7 +354,7 @@
                 <input class="form-input" type="text" placeholder="🔍︎ Find">
               </form>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -810,6 +1043,7 @@
   <script src="js/mixitup.min.js"></script>
   <script src="js/slick.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/search-box.js"></script>
 
 </body>
 
