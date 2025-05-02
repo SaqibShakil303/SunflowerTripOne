@@ -86,8 +86,9 @@ body {
 
 /* logo */
 .header-logo {
-  width: 121px;
-  /* height: 64px; */
+  
+  width: 151px;
+  height: 120px;
 }
 .header-right {
   padding-top: 0;
